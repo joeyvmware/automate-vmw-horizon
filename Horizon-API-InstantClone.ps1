@@ -12,7 +12,7 @@ $hzcredentials = import-clixml -path <driveletter>:\<path>\<filename>.cred # Sam
 #region Starter Vars () - Generic Declarations for this example 
 $vc = "vcenter.fqdn.whatever"  # Enter in your vCenter fully qualified domain name
 $hzDomain = "domain.fqdn.whatever"
-$hzConn = $primayCS_IP
+$hzConn = "cs01.fqdn.whatever"
 $hzuser = $credentials.username
 $hzpassword = $credentials.GetNetworkCredential().Password
 $hzsvcuser = $hzcredentials.username
