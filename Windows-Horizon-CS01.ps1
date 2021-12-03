@@ -221,7 +221,7 @@ Set-HVlicense -license $horizonKey
 
 #region Start CS2 build script
 
-# "$ScriptPath\Windows-JW-ConnectionServerCS2.ps1"  $ Uncomment and change this to the path for the replica server Powershell script if needed
+# "$ScriptPath\Windows-Horizon-CS02.ps1"  $ Uncomment and change this to the path for the replica server Powershell script if needed
 
 #endregion
 
