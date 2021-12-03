@@ -54,7 +54,7 @@ $templatename = "Server2019-STD" # Change this to your Content Library Template 
 $source1 = "\\$fileserver\path\Horizon-8\2106\$horizonCSfile"  # Change this to your file server's path to the Horizon Installer location
 $source2 = "\\$fileserver\path\Horizon-8\2106\$horizonBat" # Change this to the BAT file for the Horizon primary Connector Server installer command line
 # BAT file will have this command line = C:\Temp\VMware-Horizon-Connection-Server-x86_64-8.3.0-18294467.exe /s /v "/qn VDM_SERVER_INSTANCE_TYPE=2 ADAM_PRIMARY_NAME=cs01.fqdn.whatever"
-$source3 = "\\$fileserver\s$\certs\$certfile" # Change this to the path to where the SSL cert is located that will be copied over
+$source3 = "\\$fileserver\path\certs\$certfile" # Change this to the path to where the SSL cert is located that will be copied over
 $Target = "c:\temp\"
 #endregion
 
@@ -146,12 +146,6 @@ function Start-Sleep($seconds) {
 
 # Sleep for 2 minutes to give the OS time to boot back up..
 Start-Sleep 120
-
-#region Copy the command file that we will later use to silently launch the Horizon Connection Server and the Install file.
-$source1 = "\\192.168.1.95\s$\Horizon-8\2106\$horizonCSfile"
-$source2 = "\\192.168.1.95\s$\Horizon-8\2106\$horizonBat"
-$source3 = "\\192.168.1.95\s$\certs\$certfile"
-$Target = "c:\temp\"
 
 # Copy-Item -Path $source -Destination 'C:\temp' -ToSession $session
 Start-BitsTransfer -source $source1 -Destination \\$vm\c$\temp\
