@@ -1,3 +1,5 @@
+# Reference https://www.retouw.nl/2020/06/21/horizonrestapi-handling-instant-clone-administrator-accounts/
+
 # The beginning of each script I always include how to create the credential file and how to import it for each script I use.
 # Save vCenter credentials - Only needs to be ran once to create .cred file.
 # $credentials = Get-Credential
