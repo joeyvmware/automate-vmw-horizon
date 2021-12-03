@@ -55,7 +55,7 @@ $templatename = "Server2019-STD" # Change this to your Content Library Template 
 $source1 = "\\$fileserver\path\Horizon-8\2106\$horizonCSfile"  # Change this to your file server's path to the Horizon Installer location
 $source2 = "\\$fileserver\path\Horizon-8\2106\$horizonBat" # Change this to the BAT file for the Horizon primary Connector Server installer command line
 # BAT file will have this command line = C:\Temp\VMware-Horizon-Connection-Server-x86_64-8.3.0-18294467.exe /s /v "/qn VDM_SERVER_INSTANCE_TYPE=1 VDM_INITIAL_ADMIN_SID=S-1-5-32-544 HTMLACCESS=1 FWCHOICE=1 DEPLOYMENT_TYPE=GENERAL VDM_SERVER_RECOVERY_PWD="password" VDM_SERVER_RECOVERY_PWD_REMINDER=""Lab Password"""
-$source3 = "\\$fileserver\s$\certs\$certfile" # Change this to the path to where the SSL cert is located that will be copied over
+$source3 = "\\$fileserver\path\certs\$certfile" # Change this to the path to where the SSL cert is located that will be copied over
 $Target = "c:\temp\"
 #endregion
 
