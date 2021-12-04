@@ -221,21 +221,20 @@ Set-HVlicense -license $horizonKey
 
 #region Start CS2 build script
 
-# "$ScriptPath\Windows-Horizon-CS02.ps1"  $ Uncomment and change this to the path for the replica server Powershell script if needed
+# Invoke-Expression -Command $ScriptPath\Windows-Horizon-CS02.ps1  $ Uncomment and change this to the path for the replica server Powershell script if needed
 
 #endregion
 
 
 #region Add vCenter to Connection Server..
 
-"$ScriptPath\Horizon-API-vCenter.ps1" # Download this script also from my Github or check out Wouter Kursten's https://www.retouw.nl/2020/04/12/adding-vcenter-server-to-horizon-view-using-the-apis/
-
+Invoke-Expression -Command $ScriptPath\Horizon-API-vCenter.ps1 # Download this script also from my Github or check out Wouter Kursten's https://www.retouw.nl/2020/04/12/adding-vcenter-server-to-horizon-view-using-the-apis/
 #endregion
 
 
 #region Create the Instant Clone domain user
 
-"$ScriptPath\Horizon-API-InstantClone.ps1" # Download this script also from my Github or check out Wouter Kursten's https://www.retouw.nl/2020/06/21/horizonrestapi-handling-instant-clone-administrator-accounts/
+Invoke-Expression -Command $ScriptPath\Horizon-API-InstantClone.ps1 # Download this script also from my Github or check out Wouter Kursten's https://www.retouw.nl/2020/06/21/horizonrestapi-handling-instant-clone-administrator-accounts/
 
 #endregion
 
@@ -243,15 +242,15 @@ Set-HVlicense -license $horizonKey
 #region Adding Manual and Instant Clone pools
 
 # Then add Windows 10 Jump Box script
-# "$ScriptPath\VDI-Manual-Pool-JumpBox.ps1" # Download this script also from my Github if you using a manual desktop pool and uncomment
+# Invoke-Expression -Command $ScriptPath\VDI-Manual-Pool-JumpBox.ps1 # Download this script also from my Github if you using a manual desktop pool and uncomment
 
 
 # Then add Instant Clone pool script
-# "$ScriptPath\vdi-newpool-random.ps1"  # Download this script also from my Github if you are wanting to auto create an instant clone pool and uncomment the line
+# Invoke-Expression -Command $ScriptPath\vdi-newpool-random.ps1  # Download this script also from my Github if you are wanting to auto create an instant clone pool and uncomment the line
 #endregion
 
 #region Now to deploy the internal and external UAGs
-# "$ScriptPath\Deploy-UAGs.ps1"  # Download this script also from my Github if you want to also deploy UAGs and uncomment this line
+# Invoke-Expression -Command $ScriptPath\Deploy-UAGs.ps1  # Download this script also from my Github if you want to also deploy UAGs and uncomment this line
 #endregion
 
 $endtime = Get-Date
