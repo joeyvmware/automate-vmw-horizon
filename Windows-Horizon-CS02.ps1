@@ -149,10 +149,31 @@ Start-Sleep 120
 
 # Copy-Item -Path $source -Destination 'C:\temp' -ToSession $session
 Start-BitsTransfer -source $source1 -Destination \\$vm\c$\temp\
-Start-BitsTransfer -source $source2 -Destination \\$vm\c$\temp\
+Start-BitsTransfer -source $source2 -Destination "\\$vm\c$\programdata\microsoft\windows\Start Menu\Programs\StartUp\"
 Start-BitsTransfer -source $source3 -Destination \\$vm\c$\temp\
 #endregion
 
+Invoke-Command -ComputerName $vm -Credential $credentials -ScriptBlock {
+    Shutdown -r -t 0
+}
+Write-Host "Rebooting $server to start the install on autologon.."
+Start-Sleep 720
+Invoke-Command -ComputerName $vm -ScriptBlock {remove-item "c:\programdata\microsoft\windows\Start Menu\Programs\StartUp\$using:HorizonBat"}
+#endregion
+
+function Start-Sleep($seconds) {
+    $doneDT = (Get-Date).AddSeconds($seconds)
+    while($doneDT -gt (Get-Date)) {
+        $secondsLeft = $doneDT.Subtract((Get-Date)).TotalSeconds
+        $percent = ($seconds - $secondsLeft) / $seconds * 100
+        Write-Progress -Activity "Sleeping.." -Status "Waiting for VM to come back up.." -SecondsRemaining $secondsLeft -PercentComplete $percent
+        [System.Threading.Thread]::Sleep(500)
+    }
+    Write-Progress -Activity "Sleeping.." -Status "Waiting for OS to restart.." -SecondsRemaining 0 -Completed
+}
+
+# Sleep for 2 minutes to give the OS time to boot back up..
+Start-Sleep 120
 # Set Windows Activation Key
 Invoke-Command -ComputerName $vm -ScriptBlock {slmgr /ipk $Using:localWindowskey}  -Credential $credentials
 
