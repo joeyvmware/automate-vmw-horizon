@@ -217,6 +217,8 @@ $hzHealth =$hzServices.ConnectionServerHealth.ConnectionServerHealth_List()
 $hzHealth.ConnectionData
 
 Set-HVlicense -license $horizonKey
+
+Invoke-Expression -Command $ScriptPath\Horizon-Create-Events-DB.ps1 # This will delete then create a fresh Horizon-Events DB, please edit that script to include your info
 #endregion
 
 #region Start CS2 build script
