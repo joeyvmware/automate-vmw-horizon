@@ -13,9 +13,9 @@ $credentials = import-clixml -path <driveletter>:\<path>\<filename>.cred
 
 
 # Variables
-$vc = "jw-vcenter.iamware.net"
-$hzDomain = "iamware.net"
-$hzConn = "cs01.iamware.net"
+$vc = "vcenter.fqdn.whatever"  # Enter in your vCenter fully qualified domain name
+$hzDomain = $domainname
+$hzConn = $primayCS_IP
 $CSvmFolder = "PowerShell-Deploy"
 $horizonlog4jbatlocale = "S:\Scripts\Horizon_Windows_Log4j_Mitigation\Horizon_Windows_Log4j_Mitigation.bat"
 $horizonlog4jbat = "Horizon_Windows_Log4j_Mitigation.bat"
