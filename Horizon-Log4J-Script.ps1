@@ -6,8 +6,8 @@ Remove-Variable * -ErrorAction SilentlyContinue
 # The beginning of each script I always include how to create the credential file and how to import it for each script I use.
 # Save vCenter credentials - Only needs to be ran once to create .cred file.
 # $credentials = Get-Credential
-# $credentials | Export-Clixml -path S:\scripts\jw-adminlocal-vcenter.cred
-$credentials = import-clixml -path S:\scripts\jw-vcenter.cred
+# $credentials | Export-Clixml -path <driveletter>:\<path>\<filename>.cred
+$credentials = import-clixml -path <driveletter>:\<path>\<filename>.cred
 # $localcreds = Get-Credential
 # $localcreds | Export-Clixml -path S:\scripts\localcred.cred
 
